@@ -1,0 +1,12 @@
+.h{
+  display: flex;
+  justify-content: center;
+}
+textarea{
+  width: 80vw;
+  height: 20vh;
+}
+.bt{
+  display: flex;
+  justify-content: center;
+}

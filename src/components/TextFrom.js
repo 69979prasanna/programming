@@ -8,9 +8,14 @@ export default function TextFrom(props) {
       props.showalert("Please enter the text first to convert to uppercase.","warning")
     }
     else{
-      let newtext = text.toUpperCase()
-      setText(newtext)
-      props.showalert("Text converted to uppercase.","success")
+      if(newtext === text.toUpperCase()){
+        props.showalert("The text is already in uppercase.","info")
+      }
+      else{
+        let newtext = text.toUpperCase()
+        setText(newtext)
+        props.showalert("Text converted to uppercase.","success")
+      }
     }
   }
   const handleonchange = (event)=>{
@@ -23,9 +28,14 @@ const handlelowclick = ()=>{
     props.showalert("Please enter the text first to convert to lowercase.","warning")
   }
   else{
-    let newtext = text.toLowerCase()
-    setText(newtext)
-    props.showalert("Text converted to lowercase.","success")
+    if (newtext === text.toLowerCase()){
+       props.showalert("The text is already in lowercase.","info")
+     }
+     else{
+       let newtext = text.toLowerCase()
+       setText(newtext)
+       props.showalert("Text converted to lowercase.","success")
+     }
   }
 }
 const handleshow = ()=>{

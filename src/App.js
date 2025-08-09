@@ -20,7 +20,6 @@ function App() {
     }) 
     setTimeout(()=>{
       setalert(null)
-
     }, 2000)
   }
 

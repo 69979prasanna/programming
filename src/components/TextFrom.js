@@ -3,23 +3,41 @@ export default function TextFrom(props) {
      const [text, setText] = useState('');
   const handleupclick = ()=>{
     console.log("clicked")
-    let newtext = text.toUpperCase()
-    setText(newtext)
-    props.showalert("Text converted to uppercase","success")
+    let newtext = text
+    if(newtext ===""){
+      props.showalert("Please enter the text first to convert to uppercase.","warning")
+    }
+    else{
+      let newtext = text.toUpperCase()
+      setText(newtext)
+      props.showalert("Text converted to uppercase.","success")
+    }
   }
   const handleonchange = (event)=>{
     console.log("on change")
     setText(event.target.value)
 } 
 const handlelowclick = ()=>{
-  let newtxt = text.toLowerCase()
-  setText(newtxt)
-  props.showalert("Text converted to lowercase","success")
+  let newtext = text
+  if(newtext===""){
+    props.showalert("Please enter the text first to convert to lowercase.","warning")
+  }
+  else{
+    let newtext = text.toLowerCase()
+    setText(newtext)
+    props.showalert("Text converted to lowercase.","success")
+  }
 }
 const handleshow = ()=>{
+   let newtext = text
+  if(newtext===""){
+    props.showalert("Please enter the text first to clear it.","warning")
+  }
+  else{
     let newtext = ''
     setText(newtext)
-    props.showalert("Text has been cleared", "success")
+    props.showalert("Text has been cleared.", "success")
+  }
   }
   return (
     <div>

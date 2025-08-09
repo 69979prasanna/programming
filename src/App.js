@@ -5,7 +5,7 @@ import About from './components/About';
 import Alert from './components/Alert';
 import TextFrom from './components/TextFrom';
 import{
-  BrowserRouter as Router,
+  HashRouter,
   Routes,
   Route,
   Link
@@ -26,7 +26,7 @@ function App() {
 
    return (
     <>
-    <Router>
+    <HashRouter>
     <Navbar title= "Textutils"/>
     <Alert alert={alert}></Alert>
    <Routes>
@@ -35,7 +35,7 @@ function App() {
     <Route path="/"
     element={<TextFrom showalert={showalert}></TextFrom>}/>
    </Routes>
-    </Router>
+    </HashRouter>
     </>
   );
 

@@ -62,6 +62,11 @@ const handleshow = ()=>{
        props.showalert("Text has been copied.", "success")
     }
   }
+  const handleSpeak = () => {
+  if (!text.trim()) return;
+  const utterance = new SpeechSynthesisUtterance(text); 
+  window.speechSynthesis.speak(utterance);
+}
   return (
     <div>
       <div className="container mb-3">
@@ -71,11 +76,12 @@ const handleshow = ()=>{
       <textarea name="hello" id="mybox" rows="3" value={text} onChange={handleonchange}></textarea>
       </div>
     </div>
-    <div className="bt">
-    <button className="btn btn-primary mx-1" onClick={handleupclick}>Convert to uppercase</button>
-    <button className="btn btn-primary mx-2" onClick={handlelowclick}>Convert to lowercase</button>
-     <button className="btn btn-primary mx-2" onClick={handleshow}>Clear text</button>  
-     <button className="btn btn-primary mx-2" onClick={handlecopy}>Copy text</button>  
+    <div className="bt d-flex flex-wrap justify-content-center">
+    <button className="btn btn-primary mx-1 my-1" onClick={handleupclick}>Convert to uppercase</button>
+    <button className="btn btn-primary mx-2 my-1" onClick={handlelowclick}>Convert to lowercase</button>
+     <button className="btn btn-primary mx-2 my-1" onClick={handleshow}>Clear text</button>  
+     <button className="btn btn-primary mx-2 my-1" onClick={handlecopy}>Copy text</button>  
+     <button onClick={handleSpeak} className="btn btn-primary mx-2 my-1" ><img src="https://cdn-icons-png.flaticon.com/512/4152/4152532.png" alt='speak' style={{height:40}} /></button>  
     </div>
     <div className="container mb-3 my-4 ">
       <h1>Your Text Summary</h1>

@@ -69,23 +69,23 @@ const handleshow = ()=>{
 }
   return (
     <div>
-      <div className="container mb-3">
+      <div className="container d-flex justify-content-center flex-wrap  my-3 mb-3">
       <label htmlFor="mybox mb-3" className='form-label mb-3 mx-3 my-2'><h1>
       Enter the text to anaylze  </h1></label>
       <div className="h">
       <textarea name="hello" id="mybox" rows="3" value={text} onChange={handleonchange}></textarea>
       </div>
     </div>
-    <div className="bt d-flex flex-wrap justify-content-center">
-    <button className="btn btn-primary mx-1 my-1" onClick={handleupclick}>Convert to uppercase</button>
-    <button className="btn btn-primary mx-2 my-1" onClick={handlelowclick}>Convert to lowercase</button>
-     <button className="btn btn-primary mx-2 my-1" onClick={handleshow}>Clear text</button>  
-     <button className="btn btn-primary mx-2 my-1" onClick={handlecopy}>Copy text</button>  
-     <button onClick={handleSpeak} className="btn btn-primary mx-2 my-1" ><img src="https://cdn-icons-png.flaticon.com/512/4152/4152532.png" alt='speak' style={{height:40}} /></button>  
+    <div className="bt d-flex flex-wrap justify-content-center ">
+    <button disabled={text===""} className="btn btn-primary mx-1 my-1" onClick={handleupclick}>Convert to uppercase</button>
+    <button disabled={text===""} className="btn btn-primary mx-2 my-1" onClick={handlelowclick}>Convert to lowercase</button>
+     <button disabled={text===""} className="btn btn-primary mx-2 my-1" onClick={handleshow}>Clear text</button>  
+     <button disabled={text===""} className="btn btn-primary mx-2 my-1" onClick={handlecopy}>Copy text</button>  
+     <button disabled={text===""} onClick={handleSpeak} className="btn btn-primary mx-2 my-1" ><img src="https://cdn-icons-png.flaticon.com/512/4152/4152532.png" alt='speak' style={{height:40}} /></button>  
     </div>
     <div className="container mb-3 my-4 ">
       <h1>Your Text Summary</h1>
-      <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words and {text.replace(/\s/g, '').length} characters</p>
+      <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words and {text.replace(/\s/g, '').length} characters</p>
       <p>{0.008*(text.split(" ").filter((element)=>{return element.length!==0}).length)} Minutes read</p>
       <h3> Preview</h3>
       <p>{text}</p>
